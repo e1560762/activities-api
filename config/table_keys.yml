@@ -1,0 +1,144 @@
+production:
+  activity_type:
+    comment: "1"
+    follow: "2"
+    join: "3"
+    respect: "4"
+    "1": commented
+    "2": followed
+    "3": joined
+    "4": respected
+  activity_table:
+    contests: "1"
+    followers: "2"
+    platforms: "3"
+    respects: "4"
+    comments: "5"
+    posts: "6"
+    users: "7"
+    projects: "8"
+    "1": contests
+    "2": followers
+    "3": platforms
+    "4": respects
+    "5": comments
+    "6": posts
+    "7": users
+    "8": projects
+    query:
+      "1.Comment":
+        includes: [["comment","post"]]
+        fields: ["comment.text", "comment.post.text"]
+        references: ["comment"]
+      "2.Follower":
+        includes: [["follower", "followee"]] # need user? 
+        fields: ["follower.followee.name"] # need user?
+        references: ["follower"]
+      "3.Contest":
+        includes: ["contest"]
+        fields: ["contest.name"]
+        references: ["contest"]
+      "3.Platform":
+        includes: ["platform"]
+        fields: ["platform.name"]
+        references: ["platform"]
+      "4.Respect":
+        includes: [["respect", "project"]]
+        fields: ["respect.project.name"]
+        references: ["respect"]
+development:
+  activity_type:
+    comment: "1"
+    follow: "2"
+    join: "3"
+    respect: "4"
+    "1": commented
+    "2": followed
+    "3": joined
+    "4": respected
+  activity_table:
+    contests: "1"
+    followers: "2"
+    platforms: "3"
+    respects: "4"
+    comments: "5"
+    posts: "6"
+    users: "7"
+    projects: "8"
+    "1": contests
+    "2": followers
+    "3": platforms
+    "4": respects
+    "5": comments
+    "6": posts
+    "7": users
+    "8": projects
+    query:
+      "1.Comment":
+        includes: [["comment","post"]]
+        fields: ["comment.text", "comment.post.text"]
+        references: ["comment"]
+      "2.Follower":
+        includes: [["follower", "followee"]]
+        fields: ["follower.followee.name"]
+        references: ["follower"]
+      "3.Contest":
+        includes: ["contest"]
+        fields: ["contest.name"]
+        references: ["contest"]
+      "3.Platform":
+        includes: ["platform"]
+        fields: ["platform.name"]
+        references: ["platform"]
+      "4.Respect":
+        includes: [["respect", "project"]]
+        fields: ["respect.project.name"]
+        references: ["respect"]
+test:
+  activity_type:
+    comment: "1"
+    follow: "2"
+    join: "3"
+    respect: "4"
+    "1": commented
+    "2": followed
+    "3": joined
+    "4": respected
+  activity_table:
+    contests: "1"
+    followers: "2"
+    platforms: "3"
+    respects: "4"
+    comments: "5"
+    posts: "6"
+    users: "7"
+    projects: "8"
+    "1": contests
+    "2": followers
+    "3": platforms
+    "4": respects
+    "5": comments
+    "6": posts
+    "7": users
+    "8": projects
+    query:
+      "1.Comment":
+        includes: [["comment","post"]]
+        fields: ["comment.text", "comment.post.text"]
+        references: ["comment"]
+      "2.Follower":
+        includes: [["follower", "user.followee"]] # need user? 
+        fields: ["follower.followee.name"] # need user?
+        references: ["follower"]
+      "3.Contest":
+        includes: ["contest"]
+        fields: ["contest.name"]
+        references: ["contest"]
+      "3.Platform":
+        includes: ["platform"]
+        fields: ["platform.name"]
+        references: ["platform"]
+      "4.Respect":
+        includes: [["respect", "project"]]
+        fields: ["respect.project.name"]
+        references: ["respect"]

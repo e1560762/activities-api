@@ -1,0 +1,1 @@
+TABLE_KEYS = YAML.load_file("#{Rails.root.to_s}/config/table_keys.yml")[Rails.env]
